@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Your Name</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+    <nav class="site-nav">
+      <span class="nav-logo">Robbie Carneal</span>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+       ABOUT / HERO
+  ══════════════════════════════════════ -->
+    <section class="about" id="about">
+      <div class="about-image-wrap">
+        <img
+          class="about-photo"
+          src="images/profile.jpg"
+          alt="Portrait of Robbie"
+        />
+      </div>
+
+      <div class="about-text">
+        <span class="about-eyebrow">Game Dev and Photographer</span>
+
+        <h1 class="about-name">Robbie <em>Carneal</em></h1>
+
+        <p class="about-bio">
+          Hey, I am Robbie, a Game Dev with a passion for photography. I love
+          capturing natural landscapes and manmade architecture, and especially
+          enjoy capturing dark themes, dramatic lighting, and nighttime scenes.
+        </p>
+
+        <div class="about-details">
+          <div class="about-detail-row">
+            <span class="detail-label">Based in</span>
+            <span class="detail-value">Virginia</span>
+          </div>
+          <div class="about-detail-row">
+            <span class="detail-label">Specialty</span>
+            <span class="detail-value"
+              >Landscape · Architecture · Dark/Dramatic Photography</span
+            >
+          </div>
+          <div class="about-detail-row">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">robbie.carneal@gmail.com</span>
+          </div>
+        </div>
+
+        <a class="about-cta" href="#portfolio">View Portfolio</a>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ══════════════════════════════════════
+       PORTFOLIO — intermixed grid
+       Layout key (5-col grid):
+         Portrait  = 1 col × 2 rows (class="photo-card portrait")
+         Landscape = 2 cols × 1 row (class="photo-card landscape")
+       Cards flow in source order; CSS Grid auto-places them
+       to create a natural, editorial intermix.
+  ══════════════════════════════════════ -->
+    <section class="portfolio" id="portfolio">
+      <div class="portfolio-header">
+        <div>
+          <p class="portfolio-eyebrow">Selected Work</p>
+          <h2 class="portfolio-title">Portfolio</h2>
+        </div>
+        <span class="portfolio-count">20 photographs</span>
+      </div>
+
+      <div class="photo-grid">
+        <!-- Row 1: L L — two landscapes side by side -->
+        <div class="photo-row r-LL">
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_2.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_2.jpg"
+              alt="Landscape 1"
+              loading="lazy"
+            />
+            <span class="photo-num">L–01</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_3.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_3.jpg"
+              alt="Landscape 2"
+              loading="lazy"
+            />
+            <span class="photo-num">L–02</span>
+          </div>
+        </div>
+
+        <!-- Row 2: P L — portrait beside landscape, equal height -->
+        <div class="photo-row r-PL">
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_1.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_1.jpg"
+              alt="Portrait 1"
+              loading="lazy"
+            />
+            <span class="photo-num">P–01</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_16.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_16.jpg"
+              alt="Landscape 3"
+              loading="lazy"
+            />
+            <span class="photo-num">L–03</span>
+          </div>
+        </div>
+
+        <!-- Row 3: L L L — three landscapes -->
+        <div class="photo-row r-LLL">
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_5.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_5.jpg"
+              alt="Landscape 4"
+              loading="lazy"
+            />
+            <span class="photo-num">L–04</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_4.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_4.jpg"
+              alt="Landscape 5"
+              loading="lazy"
+            />
+            <span class="photo-num">L–05</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_7.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_7.jpg"
+              alt="Landscape 6"
+              loading="lazy"
+            />
+            <span class="photo-num">L–06</span>
+          </div>
+        </div>
+
+        <!-- Row 4: P P P — three portraits -->
+        <div class="photo-row r-PPP">
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_8.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_8.jpg"
+              alt="Portrait 2"
+              loading="lazy"
+            />
+            <span class="photo-num">P–02</span>
+          </div>
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_9.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_9.jpg"
+              alt="Portrait 3"
+              loading="lazy"
+            />
+            <span class="photo-num">P–03</span>
+          </div>
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_10.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_10.jpg"
+              alt="Portrait 4"
+              loading="lazy"
+            />
+            <span class="photo-num">P–04</span>
+          </div>
+        </div>
+
+        <!-- Row 5: P L — portrait beside landscape -->
+        <div class="photo-row r-PL">
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_11.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_11.jpg"
+              alt="Portrait 5"
+              loading="lazy"
+            />
+            <span class="photo-num">P–05</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_12.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_12.jpg"
+              alt="Landscape 7"
+              loading="lazy"
+            />
+            <span class="photo-num">L–07</span>
+          </div>
+        </div>
+
+        <!-- Row 6: L L — two landscapes -->
+        <div class="photo-row r-LL">
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_13.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_13.jpg"
+              alt="Landscape 8"
+              loading="lazy"
+            />
+            <span class="photo-num">L–08</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_14.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_14.jpg"
+              alt="Landscape 9"
+              loading="lazy"
+            />
+            <span class="photo-num">L–09</span>
+          </div>
+        </div>
+
+        <!-- Row 7: P P L — two portraits + one landscape, equal height -->
+        <div class="photo-row r-PPL">
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_15.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_15.jpg"
+              alt="Portrait 6"
+              loading="lazy"
+            />
+            <span class="photo-num">P–06</span>
+          </div>
+          <div
+            class="photo-card portrait"
+            onclick="openLightbox('images/Portfolio_Image_20.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_20.jpg"
+              alt="Portrait 7"
+              loading="lazy"
+            />
+            <span class="photo-num">P–07</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_6.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_6.jpg"
+              alt="Landscape 10"
+              loading="lazy"
+            />
+            <span class="photo-num">L–10</span>
+          </div>
+        </div>
+
+        <!-- Row 8: L L L — three landscapes -->
+        <div class="photo-row r-LLL">
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_17.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_17.jpg"
+              alt="Landscape 11"
+              loading="lazy"
+            />
+            <span class="photo-num">L–11</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_18.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_18.jpg"
+              alt="Landscape 12"
+              loading="lazy"
+            />
+            <span class="photo-num">L–12</span>
+          </div>
+          <div
+            class="photo-card landscape"
+            onclick="openLightbox('images/Portfolio_Image_19.jpg')"
+          >
+            <img
+              src="images/Portfolio_Image_19.jpg"
+              alt="Landscape 13"
+              loading="lazy"
+            />
+            <span class="photo-num">L–13</span>
+          </div>
+        </div>
+      </div>
+      <!-- /photo-grid -->
+    </section>
+
+    <!-- ══════════════════════════════════════
+       LIGHTBOX
+  ══════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" onclick="closeLightbox()">
+          &times;
+        </button>
+        <img id="lightbox-img" alt="Enlarged photograph" />
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="site-footer">
+      <span class="footer-logo">YourName</span>
+      <span class="footer-copy"
+        >&copy; 2025 Your Name. All rights reserved.</span
+      >
+    </footer>
+
+    <script>
+      /* ── Hamburger nav ── */
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("open");
+        links.classList.toggle("open");
+      });
+
+      /* Close nav when a link is tapped on mobile */
+      links.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          toggle.classList.remove("open");
+          links.classList.remove("open");
+        });
+      });
+
+      /* ── Lightbox ── */
+      function openLightbox(src) {
+        document.getElementById("lightbox-img").src = src;
+        document.getElementById("lightbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox(e) {
+        if (
+          e &&
+          e.target !== document.getElementById("lightbox") &&
+          !e.target.classList.contains("lightbox-close")
+        )
+          return;
+        document.getElementById("lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.getElementById("lightbox").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      });
+    </script>
+  </body>
+</html>

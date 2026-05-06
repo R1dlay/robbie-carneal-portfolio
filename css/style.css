@@ -1,0 +1,600 @@
+/* ============================================================
+   style.css — Portfolio Site
+   Palette: White base · Red #D72B2B · Orange #F07A2A · Charcoal #1A1A1A
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+
+:root {
+  --white: #ffffff;
+  --off-white: #f9f6f3;
+  --red: #d72b2b;
+  --orange: #f07a2a;
+  --charcoal: #1a1a1a;
+  --mid: #5c5c5c;
+  --light: #d8d0c8;
+
+  --gradient: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --max-w: 1280px;
+  --gap: clamp(0.6rem, 1.5vw, 1.1rem);
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--charcoal);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem clamp(1.2rem, 5vw, 4rem);
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mid);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background: var(--gradient);
+  transition: width 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--charcoal);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger button (mobile only) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition:
+    transform 0.25s,
+    opacity 0.25s;
+}
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── ABOUT ──────────────────────────────────────────────── */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 7rem) clamp(1.2rem, 5vw, 4rem);
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -18px -18px 18px 18px;
+  background: var(--gradient);
+  z-index: 0;
+  border-radius: 2px;
+  opacity: 0.18;
+}
+
+.about-image-wrap::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 8px;
+  bottom: 8px;
+  border: 2px solid var(--orange);
+  border-radius: 2px;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+
+.about-image-wrap:hover::after {
+  transform: translate(4px, 4px);
+}
+
+.about-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  background: var(--off-white);
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--orange);
+}
+
+.about-eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1.5px;
+  background: var(--gradient);
+}
+
+.about-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.about-name em {
+  font-style: italic;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-bio {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.85;
+  color: var(--mid);
+  max-width: 48ch;
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--light);
+}
+
+.about-detail-row {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: var(--red);
+  min-width: 7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+}
+
+.detail-value {
+  color: var(--mid);
+}
+
+.about-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.85rem 2.25rem;
+  background: var(--gradient);
+  color: var(--white);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  box-shadow: 0 4px 18px rgba(215, 43, 43, 0.28);
+}
+
+.about-cta:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ─── SECTION DIVIDER ────────────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 4px;
+  background: var(--gradient);
+}
+
+/* ─── PORTFOLIO SECTION ──────────────────────────────────── */
+.portfolio {
+  background: var(--off-white);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.portfolio-header {
+  max-width: var(--max-w);
+  margin: 0 auto 2.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+}
+
+.portfolio-eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1.5px;
+  background: var(--gradient);
+}
+
+.portfolio-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.portfolio-count {
+  font-size: 0.8rem;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+}
+
+/* ─── PHOTO GRID ─────────────────────────────────────────── */
+/*
+  Flex-row layout. Each .photo-row is a full-width strip whose height
+  is set by aspect-ratio. Cards fill that height and divide the width
+  via flex-grow, which encodes each image's true aspect ratio so that
+  every photo renders at exact 11:14 (portrait) or 14:11 (landscape)
+  with zero dead space or cropping.
+
+  Row aspect-ratio formula: (11·Np + 14·Nl) / 14
+    Np = portrait count in row, Nl = landscape count in row
+*/
+
+.photo-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.photo-row {
+  display: flex;
+  gap: var(--gap);
+  width: 100%;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--light);
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* flex-grow = width units so every card in a row shares the same height */
+.photo-card.portrait {
+  flex-grow: 11;
+}
+.photo-card.landscape {
+  flex-grow: 14;
+}
+
+/* Image fills the card absolutely — card height comes from the row */
+.photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Row aspect ratios: (11·Np + 14·Nl) / 14 */
+.photo-row.r-LL {
+  aspect-ratio: 28 / 14;
+} /* Np=0 Nl=2 */
+.photo-row.r-PL {
+  aspect-ratio: 25 / 14;
+} /* Np=1 Nl=1 */
+.photo-row.r-PPP {
+  aspect-ratio: 33 / 14;
+} /* Np=3 Nl=0 */
+.photo-row.r-PPL {
+  aspect-ratio: 36 / 14;
+} /* Np=2 Nl=1 */
+.photo-row.r-LLL {
+  aspect-ratio: 42 / 14;
+} /* Np=0 Nl=3 */
+
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(215, 43, 43, 0.55) 0%,
+    rgba(240, 122, 42, 0.15) 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+.photo-card:hover img {
+  transform: scale(1.04);
+}
+
+.photo-num {
+  position: absolute;
+  bottom: 0.7rem;
+  left: 0.7rem;
+  z-index: 2;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.photo-card:hover .photo-num {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── LIGHTBOX ───────────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 10, 8, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: min(90vw, 900px);
+  max-height: 90vh;
+}
+
+.lightbox-inner img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.6rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--charcoal);
+  color: var(--light);
+  padding: 2.5rem clamp(1.2rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+
+/* Tablet: scale down portrait flex-grow so they don't get too narrow */
+@media (max-width: 900px) {
+  /* rows stay the same structure; images just narrower — still correct AR */
+}
+
+/* Mobile: stack every row's cards vertically, one per line */
+@media (max-width: 700px) {
+  /* Hamburger nav */
+  .nav-toggle {
+    display: flex;
+  }
+  .site-nav {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--light);
+    padding: 0.5rem 0;
+    gap: 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 0.85rem clamp(1.2rem, 5vw, 4rem);
+    font-size: 0.85rem;
+  }
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* About: stack vertically */
+  .about {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    gap: 2.5rem;
+  }
+
+  .about-image-wrap {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .about-bio {
+    max-width: 100%;
+  }
+
+  /* On mobile: rows stack cards vertically, each full width */
+  .photo-row {
+    flex-direction: column;
+  }
+
+  .photo-row.r-LL,
+  .photo-row.r-PL,
+  .photo-row.r-PPP,
+  .photo-row.r-PPL,
+  .photo-row.r-LLL {
+    aspect-ratio: unset;
+  }
+
+  .photo-card.portrait,
+  .photo-card.landscape {
+    flex-grow: 0;
+    width: 100%;
+  }
+
+  .photo-card.portrait {
+    aspect-ratio: 11 / 14;
+  }
+  .photo-card.landscape {
+    aspect-ratio: 14 / 11;
+  }
+}
